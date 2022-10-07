@@ -1,0 +1,38 @@
+{
+  "name": "@sklinet/strapi-plugin-video-field",
+  "version": "1.0.0",
+  "description": "Add video field to your Strapi application.",
+  "private": false,
+  "keywords": [
+    "strapi",
+    "video",
+    "field",
+    "video-field",
+    "custom-field"
+  ],
+  "strapi": {
+    "name": "video-field",
+    "description": "Add video field to your Strapi application.",
+    "kind": "plugin",
+    "displayName": "Video Field"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@strapi/strapi": "^4.0.0"
+  },
+  "author": {
+    "name": "SKLINET s.r.o.",
+    "url": "https://github.com/SKLINET"
+  },
+  "maintainers": [
+    {
+      "name": "SKLINET s.r.o.",
+      "url": "https://github.com/SKLINET"
+    }
+  ],
+  "engines": {
+    "node": ">=14.x.x <=16.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
