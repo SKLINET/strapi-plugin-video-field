@@ -24,24 +24,25 @@ const VideoInput = ({
 }) => {
     const [videoUid, setVideoUid] = useState();
     const [provider, setProvider] = useState();
+    const [videoUrl, setVideoUrl] = useState();
     const [invalidUrl, setInvalidUrl] = useState(false);
     const { formatMessage } = useIntl();
 
-    // Set video provider and videoUid based on input value
+    // Load data from value on page load
     useEffect(() => {
-        const data = getVideoProviderAndUid(value);
-        if (data) {
-            setInvalidUrl(false);
-            setProvider(data.provider);
-            setVideoUid(data.videoUid);
-        } else {
-            if (value.length > 0) {
+        const initialValue = JSON.parse(value);
+        if (initialValue.url) {
+            setVideoUrl(initialValue.url);
+            if (initialValue.provider && initialValue.videoUid) {
+                setInvalidUrl(false);
+                setProvider(initialValue.provider);
+                setVideoUid(initialValue.videoUid);
+            } else {
                 setInvalidUrl(true);
-            } else setInvalidUrl(false);
-            setProvider(null);
-            setVideoUid(null);
+            }
         }
-    }, [value]);
+    }, []);
+
 
     return (
         <Field name={name} id={name} error={error}>
@@ -65,16 +66,52 @@ const VideoInput = ({
                                 defaultMessage:
                                     "eg. https://vimeo.com/123456789",
                             })}
-                            value={value}
-                            hint={"hello"}
+                            value={videoUrl}
                             onChange={(e) => {
-                                onChange({
-                                    target: {
-                                        name,
-                                        value: e.target.value,
-                                        type: attribute.type,
-                                    },
-                                });
+                                setVideoUrl(e.target.value || "");
+                                if (e.target.value) {
+                                    const data = getVideoProviderAndUid(
+                                        e.target.value
+                                    );
+
+                                    if (e.target.value.length > 0) {
+                                        setInvalidUrl(true);
+                                    }
+
+                                    if (data?.provider && data?.videoUid) {
+                                        setInvalidUrl(false);
+                                        setProvider(data.provider);
+                                        setVideoUid(data.videoUid);
+                                    }
+
+                                    const valueObj = {
+                                        url: e.target.value,
+                                        provider: data?.provider || "",
+                                        videoUid: data?.videoUid || "",
+                                    };
+
+                                    onChange({
+                                        target: {
+                                            name,
+                                            value: JSON.stringify(valueObj),
+                                            type: attribute.type,
+                                        },
+                                    });
+                                } else {
+                                    setInvalidUrl(false);
+                                    const valueObj = {
+                                        url: "",
+                                        provider: undefined,
+                                        videoUid: undefined,
+                                    };
+                                    onChange({
+                                        target: {
+                                            name,
+                                            value: JSON.stringify(valueObj),
+                                            type: attribute.type,
+                                        },
+                                    });
+                                }
                             }}
                         />
                         <FieldHint />

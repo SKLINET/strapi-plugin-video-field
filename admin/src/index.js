@@ -8,7 +8,7 @@ export default {
     app.customFields.register({
       name: "video",
       pluginId: "video-field",
-      type: "string",
+      type: "json",
       icon: VideoIcon,
       intlLabel: {
         id: getTrad("video-field.label"),
