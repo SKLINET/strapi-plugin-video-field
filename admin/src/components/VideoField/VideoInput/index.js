@@ -31,7 +31,7 @@ const VideoInput = ({
     // Load data from value on page load
     useEffect(() => {
         const initialValue = JSON.parse(value);
-        if (initialValue.url) {
+        if (initialValue?.url) {
             setVideoUrl(initialValue.url);
             if (initialValue.provider && initialValue.videoUid) {
                 setInvalidUrl(false);
