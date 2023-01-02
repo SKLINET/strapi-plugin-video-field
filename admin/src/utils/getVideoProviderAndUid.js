@@ -6,7 +6,7 @@ const getVideoProviderAndUid = (url) => {
         if (match && match[5]) {
             return {
                 provider: "vimeo",
-                videoUid: match[5],
+                providerUid: match[5],
             };
         }
     }
@@ -17,14 +17,14 @@ const getVideoProviderAndUid = (url) => {
         if (match && match[8].length == 11) {
             return {
                 provider: "youtube",
-                videoUid: match[8],
+                providerUid: match[8],
             };
         }
     }
     if (url.includes("facebook")) {
         return {
             provider: "facebook",
-            videoUid: url,
+            providerUid: url,
         };
     }
 };
