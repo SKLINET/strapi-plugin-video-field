@@ -50,6 +50,65 @@ module.exports = () => ({
 })
 ```
 
+In `config/middlewares.js` file extend "strapi::security" middleware:
+
+```js
+{
+        name: "strapi::security",
+        config: {
+            contentSecurityPolicy: {
+                useDefaults: true,
+                directives: {
+                    "frame-src":[
+                        "'self'",
+                        "youtube.com",
+                        "www.youtube.com",
+                        "vimeo.com",
+                        "*.vimeo.com",
+                        "facebook.com",
+                        "www.facebook.com",
+                    ],
+                },
+            },
+        },
+    },
+```
+
+If you do not yet have this file, then create and add:
+
+```js
+module.exports = [
+    "strapi::errors",
+    {
+        name: "strapi::security",
+        config: {
+            contentSecurityPolicy: {
+                useDefaults: true,
+                directives: {
+                    "frame-src": [
+                        "'self'",
+                        "youtube.com",
+                        "www.youtube.com",
+                        "vimeo.com",
+                        "*.vimeo.com",
+                        "facebook.com",
+                        "www.facebook.com",
+                    ],
+                },
+            },
+        },
+    },
+    "strapi::cors",
+    "strapi::poweredBy",
+    "strapi::logger",
+    "strapi::query",
+    "strapi::body",
+    "strapi::session",
+    "strapi::favicon",
+    "strapi::public",
+];
+```
+
 Then run build:
 
 ```bash
