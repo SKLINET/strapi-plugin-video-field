@@ -15,7 +15,6 @@
 ## <a id="features"></a>✨ Key feature
 
 -   **Video field:** This plugin adds custom video field into your Strapi application ! Plugin currently supports YouTube, Vimeo, and Facebook videos.
--   **Facebook videos:** If using videos from Facebook, please keep in mind, that you must use url, which contains "facebook" in it in order to make them work.
 
 ## <a id="installation"></a>🔧 Installation
 
@@ -120,18 +119,6 @@ or
 
 ```bash
 yarn build
-```
-
-All done, you're now able to use video-field plugin !
-
-This plugin returns value in JSON format. Your video-field will return data like this:
-
-```js
-{
-    provider: "videoUid", // Provider of the video (youtube, vimeo, or facebook)
-    providerUid: "RANDOMUID", // UID of the video
-    url: "https://www.examplevideourl.com/RANDOMUID" // the whole URL of the video
-}
 ```
 
 ## <a id="requirements"></a>⚠️ Requirements

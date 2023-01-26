@@ -1,6 +1,6 @@
 {
   "name": "@sklinet/strapi-plugin-video-field",
-  "version": "1.0.4",
+  "version": "1.0.3",
   "description": "Add video field to your Strapi application.",
   "private": false,
   "keywords": [
