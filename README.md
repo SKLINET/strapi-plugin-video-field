@@ -95,11 +95,32 @@ module.exports = [
                         "facebook.com",
                         "www.facebook.com",
                     ],
+                    "connect-src": ["'self'", "blob:"],
+                    "img-src": ["'self'", "data:", "blob:"],
+                    "style-src": ["'self'", "'unsafe-inline'"],
+                    "script-src": [
+                        "'self'",
+
+                        "cdn.jsdelivr.net",
+                        "blob:",
+                        "https:",
+                    ],
+                    "font-src": ["'self'"],
+                    upgradeInsecureRequests: null,
                 },
             },
         },
     },
-    "strapi::cors",
+    {
+        name: "strapi::cors",
+        config: {
+            origin: [
+                "http://localhost:1337",
+                "http://localhost:3000",
+                "http://localhost:8000",
+            ],
+        },
+    },
     "strapi::poweredBy",
     "strapi::logger",
     "strapi::query",
