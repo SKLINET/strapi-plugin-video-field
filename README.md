@@ -95,7 +95,7 @@ module.exports = [
                         "facebook.com",
                         "www.facebook.com",
                     ],
-                    "connect-src": ["'self'", "blob:"],
+                    "connect-src": ["'self'", "https:", "blob:"],
                     "img-src": ["'self'", "data:", "blob:"],
                     "style-src": ["'self'", "'unsafe-inline'"],
                     "script-src": [
@@ -110,16 +110,7 @@ module.exports = [
             },
         },
     },
-    {
-        name: "strapi::cors",
-        config: {
-            origin: [
-                "http://localhost:1337",
-                "http://localhost:3000",
-                "http://localhost:8000",
-            ],
-        },
-    },
+    "strapi::cors",
     "strapi::poweredBy",
     "strapi::logger",
     "strapi::query",
