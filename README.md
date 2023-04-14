@@ -130,6 +130,22 @@ module.exports = [
 ];
 ```
 
+Add this field to any desired content-type attributes
+
+```json5
+{
+    // ...
+    "attributes": {
+        // ...
+        "video": {
+            "type": "customField",
+            "customField": "plugin::video-field.video",
+        }
+        // ...
+    }
+}
+```
+
 Then run build:
 
 ```bash
