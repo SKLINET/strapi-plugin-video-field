@@ -142,7 +142,7 @@ or
 yarn build
 ```
 
-All done, you're now able to use video-field plugin !
+All done, you're now able to use video-field plugin ! After installation, you will find the video field at the custom fields section of the content-type builder.
 
 This plugin returns value in JSON format. Your video-field will return data like this:
 
