@@ -16,7 +16,7 @@ export default {
       },
       intlDescription: {
         id: getTrad("video-field.description"),
-        defaultMessage: "Video field for YouTube or Vimeo.",
+        defaultMessage: "Video field for YouTube, Vimeo, DailyMotion or Facebook.",
       },
       components: {
         Input: async () =>

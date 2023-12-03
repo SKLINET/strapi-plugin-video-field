@@ -21,6 +21,16 @@ const getVideoProviderAndUid = (url) => {
             };
         }
     }
+    if (url.includes("dailymotion")) {
+        const regExp = /^.*(dailymotion\.com\/videos\/)?([^#\&\?]*)./;
+        const match = url.match(regExp);
+        if (match && match[0]) {
+            return {
+                provider: "dailymotion",
+                providerUid: match[0].split('/')[4],
+            };
+        }
+    }
     if (url.includes("facebook")) {
         return {
             provider: "facebook",

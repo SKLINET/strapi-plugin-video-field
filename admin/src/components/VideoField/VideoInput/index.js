@@ -151,6 +151,15 @@ const VideoInput = ({
                                     height={200}
                                 ></iframe>
                             )}
+                            {provider === "dailymotion" && (
+                                <iframe 
+                                 type="text/html"
+                                 src={`https://www.dailymotion.com/embed/video/${providerUid}`}
+                                    frameBorder={0}
+                                    allowFullScreen
+                                    height={400}
+                                ></iframe>
+                            )}
                             {provider === "facebook" && (
                                 <iframe
                                     src={`https://www.facebook.com/plugins/video.php?href=${providerUid}&show_text=false&t=0`}

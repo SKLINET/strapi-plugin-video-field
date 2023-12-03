@@ -68,6 +68,8 @@ In `config/middlewares.js` file extend "strapi::security" middleware:
                         "*.vimeo.com",
                         "facebook.com",
                         "www.facebook.com",
+                        "dailymotion.com",
+                        "www.dailymotion.com",
                     ],
                 },
             },
@@ -94,6 +96,8 @@ module.exports = [
                         "*.vimeo.com",
                         "facebook.com",
                         "www.facebook.com",
+                        "dailymotion.com",
+                        "www.dailymotion.com",
                     ],
                     "connect-src": ["'self'", "https:", "blob:", "*.strapi.io",],
                     "img-src": [
