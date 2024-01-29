@@ -1,6 +1,6 @@
 {
   "name": "@sklinet/strapi-plugin-video-field",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Add video field to your Strapi application.",
   "private": false,
   "keywords": [
@@ -31,7 +31,7 @@
     }
   ],
   "engines": {
-    "node": ">=14.19.1 <=18.x.x",
+    "node": ">=14.19.1 <=20.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT",
