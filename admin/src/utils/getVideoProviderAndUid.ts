@@ -1,4 +1,4 @@
-const getVideoProviderAndUid = (url) => {
+const getVideoProviderAndUid = (url: string) => {
     if (url.includes("vimeo")) {
         const regExp =
             /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/;
@@ -29,4 +29,4 @@ const getVideoProviderAndUid = (url) => {
     }
 };
 
-export default getVideoProviderAndUid;
+export { getVideoProviderAndUid };
