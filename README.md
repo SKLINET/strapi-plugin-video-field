@@ -156,8 +156,8 @@ This plugin returns value in JSON format. Your video-field will return data like
 
 ## <a id="requirements"></a>⚠️ Requirements
 
-Strapi **v4.x.x+**
+Strapi **v5.x.x+**
 
-Node **14 - 16**
+Node **>= v20.x.x**
 
-Tested on **v4.4.1**
+Tested on **v5.1.1**
