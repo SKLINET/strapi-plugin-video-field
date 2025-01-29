@@ -26,11 +26,21 @@ export default {
         });
 
         app.registerPlugin({
-          id: PLUGIN_ID,
-          initializer: Initializer,
-          isReady: false,
-          name: PLUGIN_ID,
+            id: PLUGIN_ID,
+            initializer: Initializer,
+            isReady: false,
+            name: PLUGIN_ID,
         });
+    },
+
+    bootstrap(app: any) {
+        const plugin = app.getPlugin(PLUGIN_ID);
+
+        if (plugin) {
+            plugin.isReady = true;
+        } else {
+            console.warn(`[${PLUGIN_ID}] Plugin not found during bootstrap`);
+        }
     },
 
     async registerTrads(app: any) {
