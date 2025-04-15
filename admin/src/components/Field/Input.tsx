@@ -19,6 +19,7 @@ interface VideoInputProps {
 
 const VideoInput = ({ attribute, name, onChange, value, intlLabel, intlDescription }: VideoInputProps) => {
     const [providerUid, setProviderUid] = useState<string | null>(null);
+    const [privacyHash, setPrivacyHash] = useState<string | null>(null);
     const [provider, setProvider] = useState<string | null>(null);
     const [videoUrl, setVideoUrl] = useState<string | null>(null);
     const [invalidUrl, setInvalidUrl] = useState(false);
@@ -36,6 +37,9 @@ const VideoInput = ({ attribute, name, onChange, value, intlLabel, intlDescripti
             } catch (e) {
                 initialValue = {};
             }
+        }
+        if (initialValue?.privacyHash) {
+          setPrivacyHash(initialValue.privacyHash);
         }
 
         if (initialValue?.url) {
@@ -65,10 +69,15 @@ const VideoInput = ({ attribute, name, onChange, value, intlLabel, intlDescripti
                 setProviderUid(data.providerUid);
             }
 
+            if (data?.privacyHash) {
+              setPrivacyHash(data.privacyHash);
+            }
+
             const valueObj = {
                 url: e.target.value,
                 provider: data?.provider || '',
                 providerUid: data?.providerUid || '',
+                privacyHash: data?.privacyHash || '',
             };
 
             onChange({
@@ -84,6 +93,7 @@ const VideoInput = ({ attribute, name, onChange, value, intlLabel, intlDescripti
                 url: '',
                 provider: undefined,
                 providerUid: undefined,
+                privacyHash: undefined,
             };
             onChange({
                 target: {
@@ -130,7 +140,7 @@ const VideoInput = ({ attribute, name, onChange, value, intlLabel, intlDescripti
                 <Flex paddingTop={4} justifyContent={'center'}>
                     {provider === 'vimeo' && (
                         <iframe
-                            src={`https://player.vimeo.com/video/${providerUid}`}
+                            src={`https://player.vimeo.com/video/${providerUid}${privacyHash ? '/' + privacyHash : ''}`}
                             frameBorder={0}
                             allowFullScreen
                             height={200}
